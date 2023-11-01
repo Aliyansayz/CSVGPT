@@ -7,12 +7,11 @@ def init_llm(key):
     llm = OpenAI(openai_api_key=key)
     return llm
 
-def query_agent(data, query, key):
+def query_agent(data, query, llm):
 
     # Parse the CSV file and create a Pandas DataFrame from its contents.
     df = pd.read_csv(data)
 
-    llm = OpenAI(openai_api_key=key)
     
     # Create a Pandas DataFrame agent.
     agent = create_pandas_dataframe_agent(llm, df, verbose=True)
