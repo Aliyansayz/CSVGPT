@@ -21,12 +21,12 @@ if done and st.session_state['OpenAI_API_Key'] !="":
 
         llm = init_llm(key= st.session_state['OpenAI_API_Key'] )
     
-if llm :
+if  st.session_state['OpenAI_API_Key'] !="":
     
     st.header("Please upload your CSV file here:")
     
     # Capture the CSV file
-    data = st.file_uploader("Upload CSV file",type="csv")
+    data = st.file_uploader("Upload CSV file", type="csv")
     
     query = st.text_area("Enter your query")
     button = st.button("Generate Response")
