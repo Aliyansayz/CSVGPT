@@ -7,13 +7,12 @@ if 'OpenAI_API_Key' not in st.session_state:
 
 st.title("Let's do some analysis on your CSV")
 
-st.session_state['OpenAI_API_Key']= st.sidebar.text_input("What's your OpenAI API key?",type="password")
+st.session_state['OpenAI_API_Key']= st.sidebar.text_input("What's your OpenAI API key?", type="password")
 
-done = st.sidebar.button("Add API key", key="done")
+done = st.sidebar.button("Add API key", key="load_button")
 
-if done:
+if done and st.session_state['OpenAI_API_Key'] !="":
     #Proceed only if API keys are provided
-    if st.session_state['OpenAI_API_Key'] !="" :
 
 
         st.header("Please upload your CSV file here:")
@@ -26,5 +25,5 @@ if done:
     
         if button and st.session_state['OpenAI_API_Key'] !="" :
             # Get Response
-            answer =  query_agent(data, query, OpenAI_API_Key )
+            answer =  query_agent(data=data, query=query, key= OpenAI_API_Key )
             st.write(answer)
