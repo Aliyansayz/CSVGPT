@@ -23,15 +23,15 @@ async def run_app( key=st.session_state['OpenAI_API_Key'] ):
         st.header("Please upload your CSV file here:")
         
         # Capture the CSV file
-        await data =  st.file_uploader("Upload CSV file", type="csv")
+        data =  st.file_uploader("Upload CSV file", type="csv")
         
-        await query =  st.text_area("Enter your query")
+        query =  st.text_area("Enter your query")
         button =  st.button("Generate Response")
         
         if button :
             # Get Response
-            answer = await  query_agent(data=data, query=query, key= st.session_state['OpenAI_API_Key']  )
-            await st.write(answer)
+            answer =   query_agent(data=data, query=query, key= st.session_state['OpenAI_API_Key']  )
+            st.write(answer)
 
 
 asyncio.run(run_app())
