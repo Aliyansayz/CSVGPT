@@ -19,19 +19,17 @@ if done and st.session_state['OpenAI_API_Key'] !="":
     #Proceed only if API keys are provided
 
         llm = init_llm(key= st.session_state['OpenAI_API_Key'] )
-
-
-if llm :
-    
-    st.header("Please upload your CSV file here:")
-    
-    # Capture the CSV file
-    data = st.file_uploader("Upload CSV file",type="csv")
-    
-    query = st.text_area("Enter your query")
-    button = st.button("Generate Response")
-
-    if button :
-        # Get Response
-        answer =  query_agent(data=data, query=query, llm=llm )
-        st.write(answer)
+        if llm :
+            
+            st.header("Please upload your CSV file here:")
+            
+            # Capture the CSV file
+            data = st.file_uploader("Upload CSV file",type="csv")
+            
+            query = st.text_area("Enter your query")
+            button = st.button("Generate Response")
+        
+            if button :
+                # Get Response
+                answer =  query_agent(data=data, query=query, llm=llm )
+                st.write(answer)
