@@ -1,21 +1,30 @@
 import streamlit as st
-from dotenv import load_dotenv
 from utils import query_agent
 
-load_dotenv()
-
+if 'OpenAI_API_Key' not in st.session_state:
+    st.session_state['OpenAI_API_Key'] =''
+    
 
 st.title("Let's do some analysis on your CSV")
-st.header("Please upload your CSV file here:")
 
-# Capture the CSV file
-data = st.file_uploader("Upload CSV file",type="csv")
+st.session_state['OpenAI_API_Key']= st.sidebar.text_input("What's your OpenAI API key?",type="password")
 
-query = st.text_area("Enter your query")
-key =  st.text_area("Enter your Api key" ,type="password")
-button = st.button("Generate Response")
+done = st.sidebar.button("Load data to Pinecone", key="done")
 
-if button:
-    # Get Response
-    answer =  query_agent(data, query, key)
-    st.write(answer)
+if done:
+    #Proceed only if API keys are provided
+    if st.session_state['OpenAI_API_Key'] !="" :
+
+
+    st.header("Please upload your CSV file here:")
+    
+    # Capture the CSV file
+    data = st.file_uploader("Upload CSV file",type="csv")
+    
+    query = st.text_area("Enter your query")
+    button = st.button("Generate Response")
+    
+    if button:
+        # Get Response
+        answer =  query_agent(data, query)
+        st.write(answer)
