@@ -19,7 +19,8 @@ if done and st.session_state['OpenAI_API_Key'] !="":
     #Proceed only if API keys are provided
 
     
-if  st.session_state['OpenAI_API_Key'] !="":
+    
+if  st.session_state['OpenAI_API_Key'] != "":
     
     st.header("Please upload your CSV file here:")
     
@@ -28,6 +29,7 @@ if  st.session_state['OpenAI_API_Key'] !="":
     
     query = st.text_area("Enter your query")
     button = st.button("Generate Response")
+    
     if button :
         # Get Response
         answer =  query_agent(data=data, query=query, key= st.session_state['OpenAI_API_Key']  )
