@@ -18,9 +18,7 @@ done = st.sidebar.button("Add API key", key="load_button")
 if done and st.session_state['OpenAI_API_Key'] !="":
     #Proceed only if API keys are provided
 
-    
-    
-if  st.session_state['OpenAI_API_Key'] != "":
+
     
     st.header("Please upload your CSV file here:")
     
