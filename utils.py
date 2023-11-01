@@ -2,14 +2,11 @@
 from langchain_experimental.agents.agent_toolkits.pandas.base import create_pandas_dataframe_agent
 import pandas as pd
 from langchain.llms import OpenAI
-
-def init_llm(key):
-    
-    return OpenAI(openai_api_key=key)
   
 
-def query_agent(data, query, llm):
+def query_agent(data, query, key):
 
+    llm = OpenAI(openai_api_key=key)
     # Parse the CSV file and create a Pandas DataFrame from its contents.
     df = pd.read_csv(data)
 
