@@ -32,3 +32,6 @@ async def run_app( key=st.session_state['OpenAI_API_Key'] ):
             # Get Response
             answer = await  query_agent(data=data, query=query, key= st.session_state['OpenAI_API_Key']  )
             await st.write(answer)
+
+
+asyncio.run(run_app())
