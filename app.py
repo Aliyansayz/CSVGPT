@@ -23,10 +23,10 @@ async def run_app( key=st.session_state['OpenAI_API_Key'] ):
         st.header("Please upload your CSV file here:")
         
         # Capture the CSV file
-        data = await st.file_uploader("Upload CSV file", type="csv")
+        await data =  st.file_uploader("Upload CSV file", type="csv")
         
-        query = await st.text_area("Enter your query")
-        button = await st.button("Generate Response")
+        await query =  st.text_area("Enter your query")
+        button =  st.button("Generate Response")
         
         if button :
             # Get Response
