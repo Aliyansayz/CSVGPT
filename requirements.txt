@@ -1,0 +1,7 @@
+langchain==0.0.325
+langchain_experimental==0.0.36
+streamlit
+openai
+tiktoken
+python-dotenv
+pinecone-client
