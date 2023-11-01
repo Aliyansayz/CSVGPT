@@ -24,7 +24,7 @@ if done:
         query = st.text_area("Enter your query")
         button = st.button("Generate Response")
     
-        if button:
+        if button and st.session_state['OpenAI_API_Key'] !="" :
             # Get Response
-            answer =  query_agent(data, query)
+            answer =  query_agent(data, query, OpenAI_API_Key )
             st.write(answer)
