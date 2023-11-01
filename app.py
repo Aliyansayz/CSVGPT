@@ -9,7 +9,7 @@ st.title("Let's do some analysis on your CSV")
 
 st.session_state['OpenAI_API_Key']= st.sidebar.text_input("What's your OpenAI API key?",type="password")
 
-done = st.sidebar.button("Load data to Pinecone", key="done")
+done = st.sidebar.button("Add API key", key="done")
 
 if done:
     #Proceed only if API keys are provided
