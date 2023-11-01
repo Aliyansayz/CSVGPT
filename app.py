@@ -7,9 +7,11 @@ if 'OpenAI_API_Key' not in st.session_state:
 
 st.title("Let's do some analysis on your CSV")
 
+st.sidebar.title("😎🗝️")
 st.session_state['OpenAI_API_Key']= st.sidebar.text_input("What's your OpenAI API key?", type="password")
 
 done = st.sidebar.button("Add API key", key="load_button")
+
 
 if done and st.session_state['OpenAI_API_Key'] !="":
     #Proceed only if API keys are provided
