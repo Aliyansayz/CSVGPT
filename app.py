@@ -16,15 +16,15 @@ if done:
     if st.session_state['OpenAI_API_Key'] !="" :
 
 
-    st.header("Please upload your CSV file here:")
+        st.header("Please upload your CSV file here:")
+        
+        # Capture the CSV file
+        data = st.file_uploader("Upload CSV file",type="csv")
+        
+        query = st.text_area("Enter your query")
+        button = st.button("Generate Response")
     
-    # Capture the CSV file
-    data = st.file_uploader("Upload CSV file",type="csv")
-    
-    query = st.text_area("Enter your query")
-    button = st.button("Generate Response")
-    
-    if button:
-        # Get Response
-        answer =  query_agent(data, query)
-        st.write(answer)
+        if button:
+            # Get Response
+            answer =  query_agent(data, query)
+            st.write(answer)
