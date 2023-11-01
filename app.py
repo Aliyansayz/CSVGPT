@@ -1,6 +1,5 @@
 import streamlit as st
 from utils import query_agent
-from utils import init_llm
 
 
 
@@ -19,7 +18,6 @@ done = st.sidebar.button("Add API key", key="load_button")
 if done and st.session_state['OpenAI_API_Key'] !="":
     #Proceed only if API keys are provided
 
-        init_llm(key= st.session_state['OpenAI_API_Key'] )
     
 if  st.session_state['OpenAI_API_Key'] !="":
     
@@ -30,8 +28,7 @@ if  st.session_state['OpenAI_API_Key'] !="":
     
     query = st.text_area("Enter your query")
     button = st.button("Generate Response")
-
     if button :
         # Get Response
-        answer =  query_agent(data=data, query=query, llm=init_llm(key= st.session_state['OpenAI_API_Key'] ) )
+        answer =  query_agent(data=data, query=query, key= st.session_state['OpenAI_API_Key']  )
         st.write(answer)
