@@ -4,8 +4,9 @@ import pandas as pd
 from langchain.llms import OpenAI
 
 def init_llm(key):
-    llm = OpenAI(openai_api_key=key)
-    return llm
+    
+    return OpenAI(openai_api_key=key)
+  
 
 def query_agent(data, query, llm):
 
