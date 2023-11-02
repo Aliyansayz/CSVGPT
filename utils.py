@@ -11,9 +11,9 @@ def query_agent(data, query, key):
     # Parse the CSV file and create a Pandas DataFrame from its contents.
     df = pd.read_csv(data)
 
-    openai.api_key = key
+
     # Create a Pandas DataFrame agent.
-    llm = OpenAI()
+    llm = OpenAI(temperature=0.7, openai_api_key=key )
     agent = create_pandas_dataframe_agent(llm, df, verbose=True)
 
     #Python REPL: A Python shell used to evaluating and executing Python commands. 
