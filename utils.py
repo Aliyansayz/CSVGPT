@@ -2,16 +2,18 @@
 from langchain_experimental.agents.agent_toolkits.pandas.base import create_pandas_dataframe_agent
 import pandas as pd
 from langchain.llms import OpenAI
+import openai
   
 
 def query_agent(data, query, key):
 
-    llm = OpenAI(openai_api_key=key)
+    
     # Parse the CSV file and create a Pandas DataFrame from its contents.
     df = pd.read_csv(data)
 
-    
+    openai.api_key = key
     # Create a Pandas DataFrame agent.
+    llm = OpenAI()
     agent = create_pandas_dataframe_agent(llm, df, verbose=True)
 
     #Python REPL: A Python shell used to evaluating and executing Python commands. 
