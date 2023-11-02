@@ -14,7 +14,6 @@ def generate_response(input_text, data):
     llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
     agent = create_pandas_dataframe_agent(llm, df, verbose=True)
     st.info(agent.run(input_text))
-#   st.info(llm(input_text))
 
 with st.form('my_form'):
     
