@@ -4,14 +4,14 @@ import pandas as pd
 from langchain_experimental.agents.agent_toolkits.pandas.base import create_pandas_dataframe_agent
 
 
-st.title('🦜🔗 Quickstart App')
+st.title('Analyzer App')
 
 openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
-def generate_response(input_text, data):
+def generate_response(input_text, data, key):
 
     df = pd.read_csv(data) 
-    llm = OpenAI( openai_api_key=openai_api_key)
+    llm = OpenAI( openai_api_key=key)
     agent = create_pandas_dataframe_agent(llm, df, verbose=True)
     st.info(agent.run(input_text))
 
@@ -24,4 +24,4 @@ with st.form('my_form'):
   if not openai_api_key.startswith('sk-'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
   if submitted and openai_api_key.startswith('sk-'):
-    generate_response(text, data)
+    generate_response(text, data, openai_api_key)
