@@ -14,7 +14,7 @@ st.session_state['OpenAI_API_Key']= st.sidebar.text_input("What's your OpenAI AP
 
 done = st.sidebar.button("Add API key", key="load_button")
 
-async def run_app( key=st.session_state['OpenAI_API_Key'] ):
+def run_app( key=st.session_state['OpenAI_API_Key'] ):
     if done and key !="":
         #Proceed only if API keys are provided
     
@@ -34,4 +34,3 @@ async def run_app( key=st.session_state['OpenAI_API_Key'] ):
             st.write(answer)
 
 
-asyncio.run(run_app())
