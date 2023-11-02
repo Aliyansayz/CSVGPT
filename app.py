@@ -11,7 +11,7 @@ openai_api_key = st.sidebar.text_input('OpenAI API Key')
 def generate_response(input_text, data):
 
     df = pd.read_csv(data) 
-    llm = OpenAI( openai_api_key=openai_api_key, model: "gpt-3.5-turbo")
+    llm = OpenAI( openai_api_key=openai_api_key, model= "gpt-3.5-turbo")
     agent = create_pandas_dataframe_agent(llm, df, verbose=True)
     st.info(agent.run(input_text))
 
