@@ -4,7 +4,7 @@ import pandas as pd
 from langchain_experimental.agents.agent_toolkits.pandas.base import create_pandas_dataframe_agent
 
 
-st.title('🦜🔗 CSV LLM App')
+st.title('Data Analyzer')
 
 openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
