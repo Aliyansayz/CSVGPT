@@ -1,5 +1,5 @@
 # CSVGPT
 
 ###
-  python -m streamlit run run.py
+  python -m streamlit run app.py
 ###
