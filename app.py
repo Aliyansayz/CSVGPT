@@ -1,6 +1,5 @@
 import streamlit as st
 from utils import query_agent
-import asyncio
 
 
 if 'OpenAI_API_Key' not in st.session_state:
@@ -31,6 +30,6 @@ def run_app( key=st.session_state['OpenAI_API_Key'] ):
         if button :
             # Get Response
             answer =   query_agent(data=data, query=query, key= st.session_state['OpenAI_API_Key']  )
-            st.write(answer)
+            st.info(answer)
 
 
